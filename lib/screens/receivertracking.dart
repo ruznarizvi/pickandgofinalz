@@ -59,6 +59,13 @@ class _ReceiverTrackingState extends State<ReceiverTracking> {
   String? vehicletype;
   String? operationalcenterbranch;
 
+  bool? pickupreqaccepted;
+  bool? packagePickedUp;
+  bool? packageDroppedOperationalCenter;
+  bool? packageLeftOperationalCenter;
+  bool? packageDelivered;
+
+
 
   getyo() async {
     await FirebaseFirestore.instance
@@ -68,6 +75,14 @@ class _ReceiverTrackingState extends State<ReceiverTracking> {
         .then((value) {
 
       vehicletype = value.data()!['Vehicle Type'];
+
+
+      pickupreqaccepted = value.data()!['pickupreqaccepted'];
+      packagePickedUp = value.data()!['packagePickedUp'];
+      packageDroppedOperationalCenter = value.data()!['packageDroppedOperationalCenter'];
+      packageLeftOperationalCenter = value.data()!['packageLeftOperationalCenter'];
+      packageDelivered = value.data()!['packageDelivered'];
+
     });
 
   }
@@ -466,73 +481,26 @@ class _ReceiverTrackingState extends State<ReceiverTracking> {
   Widget build(BuildContext context) {
     var x = mapMarker;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Connecting To Driver"),
+      appBar:
+      AppBar(
+        title:
+        (pickupreqaccepted == false)
+        ?Text("Connecting To Driver"):
+          (pickupreqaccepted == true && packagePickedUp==false)
+            ?Text("Driver is heading your way"):
+          (packagePickedUp == true && packageDroppedOperationalCenter==false)
+              ?Text("Package picked up."):
+          (packageDroppedOperationalCenter == true && packageLeftOperationalCenter==false)
+              ?Text("Package in Operational Center"):
+          (packageLeftOperationalCenter == true && packageDelivered==false)
+              ?Text("Package will be delivered soon"):
+          (packageDelivered == true)
+              ?Text("Package has been delivered"):
+        Text("Loading"),
         backgroundColor: Colors.black,
       ),
-      floatingActionButton:
-      FloatingActionButton(
-        onPressed: () {
-          //_getPackageData();
-          showModalBottomSheet<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return Container(
-                height: 200,
-                color: Colors.white,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(48.0, 0.0, 0.0, 0.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Icon(Icons.account_circle_outlined),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text("${driverName}"),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 16.0),
-                          child: Row(
-                            children: [
-                              Icon(Icons.phone_android_outlined),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text("${driverContactNumber}"),
-                              )
-                            ],
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.attach_money_outlined),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text("LKR ${packageCost}"),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          );
-        },
-        child: Icon(Icons.arrow_circle_up),
-        backgroundColor: Colors.black,
-        mini: true,
-      ),
+      floatingActionButton: _getFAB(),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body:
 
@@ -685,6 +653,75 @@ class _ReceiverTrackingState extends State<ReceiverTracking> {
         },
       ),
     );
+  }
+
+  Widget _getFAB() {
+    if (pickupreqaccepted == true && packagePickedUp==false || packagePickedUp == true && packageDroppedOperationalCenter==false) {
+      return FloatingActionButton(
+        onPressed: () {
+          //_getPackageData();
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                height: 200,
+                color: Colors.white,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(48.0, 0.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            Icon(Icons.account_circle_outlined),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  12.0, 0.0, 0.0, 0.0),
+                              child: Text("${driverName}"),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding:
+                          const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 16.0),
+                          child: Row(
+                            children: [
+                              Icon(Icons.phone_android_outlined),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text("${driverContactNumber}"),
+                              )
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.attach_money_outlined),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  12.0, 0.0, 0.0, 0.0),
+                              child: Text("LKR ${packageCost}"),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        child: Icon(Icons.arrow_circle_up),
+        backgroundColor: Colors.black,
+        mini: true,
+      );
+    } else  {
+      return Container();
+    }
   }
 
   Future<void> mymap(AsyncSnapshot<DocumentSnapshot> snapshot) async {
