@@ -198,12 +198,12 @@ class _EditCustomerDetailsState extends State<EditCustomerDetails> {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(snackBar);
 
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => RoutePage(),
-                                  ),
-                                );
+                                // Navigator.pushReplacement(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => RoutePage(),
+                                //   ),
+                                // );
                               },
                               color: Colors.black,
                               child: Text(

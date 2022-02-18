@@ -172,7 +172,7 @@ class _OpProfileState extends State<OpProfile> {
                                 });
                                 const snackBar = SnackBar(
                                   content: Text(
-                                      'User Profile has been Updated Sucessfully....',
+                                      'User Profile has been Updated sSucessfully....',
                                       style: TextStyle(
                                           color: Colors.lightGreenAccent)),
                                 );
@@ -181,12 +181,12 @@ class _OpProfileState extends State<OpProfile> {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(snackBar);
 
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => RoutePage(),
-                                  ),
-                                );
+                                // Navigator.pushReplacement(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => RoutePage(),
+                                //   ),
+                                // );
                               },
                               color: Colors.black,
                               child: Text(
@@ -349,12 +349,12 @@ class _OpProfileState extends State<OpProfile> {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
 
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => RoutePage(),
-                                    ),
-                                  );
+                                  // Navigator.pushReplacement(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => RoutePage(),
+                                  //   ),
+                                  // );
                                 },
                                 color: Colors.black,
                                 child: Text(

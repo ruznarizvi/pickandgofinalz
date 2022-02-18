@@ -336,6 +336,18 @@ class _ViewPackageDetailsState extends State<ViewPackageDetails> {
                                           'packageLeftOperationalCenter': value,
                                         });
                                       });
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                        content: Row(
+                                          children: const [
+                                            Icon(
+                                              Icons.playlist_add_check_sharp,
+                                              color: Colors.green,
+                                            ),
+                                            SizedBox(width: 20),
+                                            Expanded(child: Text('Updated Successfully')),
+                                          ],
+                                        ),
+                                      ));
                                     },
                                   ),
                                 ),

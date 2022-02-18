@@ -235,9 +235,9 @@ class _ViewDriverDetaisState extends State<ViewDriverDetais> {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(snackBar);
 
-                                      Navigator.pop(
-                                        context,
-                                      );
+                                      // Navigator.pop(
+                                      //   context,
+                                      // );
                                     });
                                   },
                                   color: Colors.black,

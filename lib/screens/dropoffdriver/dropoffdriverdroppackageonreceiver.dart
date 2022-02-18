@@ -431,7 +431,7 @@ class _DropPackagesDropOffDriverState extends State<DropPackagesDropOffDriver> {
                               color: Colors.greenAccent,
                             ),
                             SizedBox(width: 20),
-                            Expanded(child: Text('Package Added Successfully!')),
+                            Expanded(child: Text('Package Dropped Successfully!')),
                           ],
                         ),
                       ));
