@@ -51,7 +51,7 @@ class _HomepageState extends State<Homepage> {
               ),
               appBar: AppBar(
                 backgroundColor: Colors.black87,
-                title: Text('Home Screen'),
+                title: Text('Pick&GO'),
                 actions: [
                   IconButton(
                     onPressed: () {
@@ -107,6 +107,9 @@ class _HomepageState extends State<Homepage> {
                         image: AssetImage('assets/homepage.png'),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     const ReusableText(
                       text: 'Send Packages with',
                       size: 30,
@@ -114,20 +117,23 @@ class _HomepageState extends State<Homepage> {
                       colour: Colors.black,
                     ),
                     const ReusableText(
-                      text: 'Connect',
+                      text: 'Pick&GO',
                       size: 30,
                       weight: FontWeight.bold,
                       colour: Colors.black,
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     const ReusableText(
-                      text: 'Get deliverd in the time it takes to drive',
+                      text: 'Your go-to courier service partner',
                       size: 16.0,
                       weight: FontWeight.normal,
                       colour: Colors.grey,
                     ),
                     const ReusableText(
-                      text: 'there',
-                      size: 18.0,
+                      text: 'in town',
+                      size: 16.0,
                       weight: FontWeight.normal,
                       colour: Colors.grey,
                     ),
@@ -181,7 +187,7 @@ class _HomepageState extends State<Homepage> {
               ),
               appBar: AppBar(
                 backgroundColor: Colors.black87,
-                title: Text('Home Screen'),
+                title: Text('Pick&GO'),
                 actions: [
                   IconButton(
                     onPressed: () {
@@ -246,14 +252,14 @@ class _HomepageState extends State<Homepage> {
                                 ),
                               ),
                               const ReusableText(
-                                text: 'Send Packages with Connect',
+                                text: 'Send Packages with Pick&GO',
                                 size: 40,
                                 weight: FontWeight.bold,
                                 colour: Colors.black,
                               ),
                               const ReusableText(
                                 text:
-                                    'Get deliverd in the time it takes to drive there..',
+                                    'Your go-to courier service partner in town',
                                 size: 20.0,
                                 weight: FontWeight.normal,
                                 colour: Colors.grey,

@@ -117,7 +117,7 @@ class _PackageDetailsState extends State<PackageDetails> {
                                         height: 20.0,
                                       ),
                                       Text(
-                                        'If default maximum package weight exceeds, you will',
+                                        'If default maximum package weight exceeds, ',
                                         style: TextStyle(fontSize: 17.0),
                                       ),
                                       SizedBox(
@@ -125,7 +125,7 @@ class _PackageDetailsState extends State<PackageDetails> {
                                       ),
                                       Center(
                                         child: Text(
-                                          'be billed separately.',
+                                          'you will be billed separately.',
                                           style: TextStyle(fontSize: 17.0),
                                         ),
                                       )
@@ -429,8 +429,8 @@ class _PackageDetailsState extends State<PackageDetails> {
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
-                                    '${widget.receiverName}, ${widget.receiverEmail}, ${widget.receiverAddress}')
+                                // Text(
+                                //     '${widget.receiverName}, ${widget.receiverEmail}, ${widget.receiverAddress}')
                               ],
                             ),
                           ),

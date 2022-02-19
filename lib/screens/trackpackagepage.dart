@@ -67,14 +67,14 @@ class _TrackPackageState extends State<TrackPackage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Pick & go',
+              'Pick&GO',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 5, 20, 10),
               child: Text(
-                "Pick & Go is Sri Lanka's no 01 unique delivery service. We offering the cheapest, quickest and safest service in door to door delivery.",
+                "Pick&GO, Sri Lanka's trusted package pick requesting and delivering service partner. Offering one of the most affordable, quickest and safest service via door to door delivery.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15,
